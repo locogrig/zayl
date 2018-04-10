@@ -1,0 +1,42 @@
+[
+  {
+    "id": "21",
+    "name": "用户管理",
+    "iconCls": "icon-user",
+    "href": "",
+    "children": [
+      {
+        "id": "211",
+        "name": "添加用户",
+        "iconCls": "icon-star",
+        "href": "/easyuiDay4/queryAll.jsp"
+      },{
+        "id": "211",
+        "name": "数据备份",
+        "iconCls": "icon-filter",
+        "href": ""
+      },{
+        "id": "211",
+        "name": "数据导出",
+        "iconCls": "icon-edit",
+        "href": ""
+      }
+    ]
+  },{
+  "id": "222",
+  "name": "班级管理",
+  "iconCls": "icon-man",
+  "href": "",
+  "children": [
+    {
+      "id": "2221",
+      "name": "班级详细管理",
+      "iconCls": "icon-star",
+      "href": ""
+    },{
+      "id": "211",
+      "name": "学生管理",
+      "iconCls": "icon-filter",
+      "href": ""
+    }]
+}]

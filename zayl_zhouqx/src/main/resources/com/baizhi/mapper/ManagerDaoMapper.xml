@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.common.dao.ManagerDao">
+
+
+    <insert id="insert" parameterType="manager">
+        insert into t_manager values(#{id},#{mname},#{password})
+    </insert>
+
+    <select id="selectByName" resultType="manager">
+        select * from t_manager where mname=#{mname}
+    </select>
+    <select id="queryClassifyCount" resultType="count">
+        select c.cname as name,ca.count as value
+        from t_classify c left join
+        (select count(*) as count,a.classifyid from t_article a group by a.classifyid) ca
+        on c.id=ca.classifyid
+        where ca.count>0
+    </select>
+    
+
+
+</mapper>

@@ -1,0 +1,120 @@
+
+[
+  {
+  "id": "22",
+  "name": "用户管理",
+  "iconCls": "icon-man",
+  "href": "",
+   "children":[
+     {
+       "id": "11",
+       "name": "展示用户",
+       "iconCls": "icon-edit",
+       "href": "/zayl/back/main/queryAll.jsp"
+     }
+   ]
+
+   },{
+    "id": "23",
+    "name": "轮播图管理",
+    "iconCls": "icon-man",
+    "href": "",
+  "children":[
+    {
+      "id": "11",
+      "name": "展示图片",
+      "iconCls": "icon-edit",
+      "href": "/zayl/back/main/queryAllCarousel.jsp"
+    }
+
+
+  ]
+
+
+    },{
+    "id": "24",
+    "name": "分类管理",
+
+     "iconCls": "icon-man",
+     "href": "",
+  "children":[
+    {
+      "id": "11",
+      "name": "展示分类",
+      "iconCls": "icon-edit",
+      "href": "/zayl/back/main/queryAllClassify.jsp"
+    }
+
+  ]
+
+},{
+    "id": "21",
+    "name": "文章管理",
+    "iconCls": "icon-user",
+    "href": "",
+    "children": [
+      {
+        "id": "211",
+        "name": "语录管理",
+        "iconCls": "icon-star",
+        "href": "/zayl/back/main/queryAllyulu.jsp"
+      },{
+        "id": "212",
+        "name": "三行情书管理",
+        "iconCls": " icon-1012333",
+        "href": "/zayl/back/main/sanhangqingshudatagrid.jsp"
+
+      },{
+        "id": "213",
+        "name": "短文管理",
+        "iconCls": "icon-edit",
+        "href": "/zayl/back/main/duanwendatagrid.jsp"
+
+      },{
+        "id": "214",
+        "name": "远方管理",
+        "iconCls": "icon-edit",
+        "href": "/zayl/back/main/yuanfangdatagrid.jsp"
+
+
+      },{
+        "id": "215",
+        "name": "发布文章",
+        "iconCls": "icon-edit",
+        "href": "/zayl/back/main/addArticle.jsp"
+
+
+      }
+
+    ]
+  },{
+  "id": "28",
+  "name": "评论管理",
+  "iconCls": "icon-man",
+  "href": "",
+  "children":[
+    {
+      "id": "11",
+      "name": "展示评论",
+      "iconCls": "icon-edit",
+      "href": "/zayl/back/main/queryAllComment.jsp"
+    }
+  ]
+
+},{
+  "id": "29",
+  "name": "数据统计",
+  "iconCls": "icon-man",
+  "href": "",
+  "children":[
+    {
+      "id": "11",
+      "name": "数据展示",
+      "iconCls": "icon-edit",
+      "href": "/zayl/back/main/showDate.jsp"
+    }
+  ]
+
+}]
+
+

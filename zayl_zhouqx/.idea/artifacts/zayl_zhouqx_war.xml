@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zayl_zhouqx:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="zayl_zhouqx.war">
+      <element id="artifact" artifact-name="zayl_zhouqx:war exploded" />
+    </root>
+  </artifact>
+</component>
