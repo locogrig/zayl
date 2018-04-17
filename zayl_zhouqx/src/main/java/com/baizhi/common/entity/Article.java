@@ -1,5 +1,7 @@
 package com.baizhi.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -9,7 +11,7 @@ public class Article {
 
     private String id;
     private String userid;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date date;
     private Integer clickcount;
     private String content;

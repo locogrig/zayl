@@ -48,7 +48,6 @@ public class PoiUtil {
 
                 Field field = fields[j];
                 field.setAccessible(true);
-
                 cell.setCellValue(field.get(object).toString());
 
             }

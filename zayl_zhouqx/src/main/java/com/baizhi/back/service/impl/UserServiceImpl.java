@@ -3,10 +3,12 @@ package com.baizhi.back.service.impl;
 import com.baizhi.back.service.UserService;
 import com.baizhi.common.dao.UserDao;
 import com.baizhi.common.entity.User;
+import com.baizhi.common.util.SaltUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -32,6 +34,12 @@ public class UserServiceImpl implements UserService {
 
     public void add(User user) {
         user.setId(UUID.randomUUID().toString());
+        user.setStatus("冻结");
+        String salt = SaltUtils.getSalt(4);
+        user.setSalt(salt);
+        String str = salt+user.getPassword();
+        user.setPath("E:\\gitprojects\\zayl_zhouqx\\src\\main\\webapp\\upload\\06804dd097b24ba1badb3d98fdbf0ce1.jpg");
+        user.setPassword(DigestUtils.md5DigestAsHex(str.getBytes()));
         userDao.insert(user);
     }
 

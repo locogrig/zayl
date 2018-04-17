@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
         article.setUserid("manager");
         article.setDate(new Date());
         article.setClickcount(1);
-        article.setStatus("审核不通过");
+        article.setStatus("待审核");
         article.setClassifyid("6");
         article.setReadCount(1);
 

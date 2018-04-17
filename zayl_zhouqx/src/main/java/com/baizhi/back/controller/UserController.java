@@ -87,9 +87,10 @@ public class UserController {
     @RequestMapping("/export")
 
     public void export(String fileName, HttpServletRequest request, HttpServletResponse response) throws IOException, IllegalAccessException {//String fileName,HttpServletRequest request,HttpServletResponse response
-        PoiUtil.exportExcel(User.class, userService.selectAll(),"E:\\temp\\zayl_zhouqx\\src\\main\\webapp\\excel\\MyExcel.xls");
-        System.out.println("下载的文件名: "+fileName);//E:\temp\zayl_zhouqx\src\main\webapp\excel
-
+        System.out.println("下载的文件名: "+fileName);//E:\gitprojects\zayl_zhouqx\src\main\webapp\excel
+        System.out.println(User.class);
+        System.out.println(userService.selectAll());
+        PoiUtil.exportExcel(User.class, userService.selectAll(),"E:\\gitprojects\\zayl_zhouqx\\src\\main\\webapp\\excel\\MyExcel.xls");
         //获取下载目录
         String realPath = request.getSession().getServletContext().getRealPath("/excel");
         //文件输入流 读取指定文件

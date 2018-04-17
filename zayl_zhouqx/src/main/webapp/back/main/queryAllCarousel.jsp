@@ -1,15 +1,18 @@
 <%@page contentType="text/html; UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 
 <script>
-    var $dl,$logdia;
+    var $dl,$lbt;
     $(function(){
         $dl = $("#dl");//这是datagrid选择器
-        $logdia = $("#logdia");
+        $lbt = $("#lbt");
 
 
         //初始化datagrid控件
         $dl.datagrid({
             fit:true,
+            striped:true,
+            fitColumns:true,
+            rownumbers:true,
             url:'${pageContext.request.contextPath}/carousel/queryAll',
             remoteSort:false,
             pagination:true,
@@ -21,15 +24,15 @@
                 {title:'名称',field:'filename',width:200,align:'center',sortable:false},
                 {title:'操作',field:'options',width:180,align:'center',
                     formatter:function(value,row,index){
-                        return "<a class='del' data-options=\"plain:true,iconCls:'icon-remove'\" onclick=\"delUser('"+row.id+"')\">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
-                            "<a class='del' data-options=\"plain:true,iconCls:'icon-edit'\" onclick=\"showImg('"+row.filename+"')\">查看</a>"
+                        return "<a class='del' data-options=\"plain:true,iconCls:'icon-remove'\" onclick=\"delCarousel('"+row.id+"')\">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
+                            "<a class='del' data-options=\"plain:true,iconCls:'icon-photo_link'\" onclick=\"showImg('"+row.filename+"')\">查看</a>"
                     }
                 },
             ]],
             onLoadSuccess:function(){
                 $(".del").linkbutton();
             },
-            toolbar:'#tb',
+            toolbar:'#carousel',
 
 
         });
@@ -41,7 +44,7 @@
         console.log(value)
         console.log(name);
         $("#dl").datagrid({
-            url:'${pageContext.request.contextPath}/user/queryBySearch?name='+name+'&value='+value
+            url:'${pageContext.request.contextPath}/carousel/queryBySearch?name='+name+'&value='+value
         })
     }
 
@@ -49,15 +52,13 @@
 
         console.log(data);
 
-
-
         var newsrc='http://localhost:8099/zayl/upload/'+data;
         // alert(newsrc);
         $("#showImg").dialog({
             title:"查看图片",
             iconCls:'icon-image',
-            width:900,
-            height:500,
+            width:1024,
+            height:512,
             fit:false,
             draggable:false,
             method:'POST',
@@ -67,9 +68,9 @@
 
 
     //打开对话框
-    function openLogDialog(){
+    function openlbtlog(){
         //渲染对话框
-        $logdia.dialog({
+        $lbt.dialog({
             width:400,
             height:300,
             title:'上传图片',
@@ -78,13 +79,13 @@
             buttons:[{
                 text:'保存图片',
                 iconCls:'icon-save',
-                handler: saveUser,
+                handler: saveCarousel,
             },{
                 text: '关闭',
                 iconCls: 'icon-cancel',
                 handler: function () {
                     //关闭当前对话框
-                    $logdia.dialog('close',true);
+                    $lbt.dialog('close',true);
                 }
             }]
         });
@@ -106,7 +107,7 @@
                 });
 
                 //关闭当前对话框
-                $logdia.dialog('close',true);
+                $lbt.dialog('close',true);
                 //刷新datagrid
                 //$("#dg").datagrid('load');//始终保持在第一页展示
                 $("#dl").datagrid('reload');//始终保持在当前页展示
@@ -115,18 +116,18 @@
     }
 
 
-    //删除用户
-    function delUser(id){
+    //删除
+    function delCarousel(id){
         console.log(id);
         //友情提醒
         $.messager.confirm('提示','确定要删除吗?',function(r){
 
             if(r){
-                //发送ajax请求删除用户
+                //发送ajax请求删除
                 $.post('${pageContext.request.contextPath}/carousel/delete',{"id":id},function(){
                     $.messager.show({
                         title:'提示',
-                        msg:'删除用户成功...',
+                        msg:'删除轮播图成功...',
                     });
 
                     $("#dl").datagrid('reload');//始终保持在当前页展示
@@ -202,18 +203,18 @@
 
 <%--工具栏--%>
 <div id="carousel">
-    <a href="#" class="easyui-linkbutton" onclick="openLogDialog();" data-options="iconCls:'icon-add',plain:true">添加</a>
+    <a href="#" class="easyui-linkbutton" onclick="openlbtlog();" data-options="iconCls:'icon-add',plain:true">添加</a>
     <%--搜索框--%>
     <input id="ss" class="easyui-searchbox"
            data-options="searcher:qq,prompt:'请输入查询条件....',menu:'#mm',width:400"/>
     <div id="mm" data-options="">
-        <div data-options="name:'name',">类名</div>
+        <div data-options="name:'title',">标题</div>
     </div>
 </div>
 
 
 <%--保存日志对话框--%>
-<div id="logdia"></div>
+<div id="lbt"></div>
 
 <%--用户修改的对话框--%>
 <div id="showImg"><img src="" id="img"></div>

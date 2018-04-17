@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: zayl_zhouqx Maven Webapp
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: h
+Implementation-Vendor-Id: com.baizhi
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_162
+Main-Class: ${start-class}
+
